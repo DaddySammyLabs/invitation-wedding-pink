@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@import "tailwindcss";
+
+/* text-rose-400 → #FB7185
+text-rose-500 → #F43F5E
+bg-rose-500 → #F43F5E
+bg-rose-600 → #E11D48
+border-rose-100 → #FFE4E6
+bg-rose-200 → #FECDD3
+text-gray-700 → #374151
+text-gray-800 → #1F2937
+text-gray-500 → #6B7280 */
+
+* {
+  box-sizing: border-box;
+}
+
+/* color: rgb(3, 3, 73); */
+/* body {
+  font-family: "Playfair Display", serif;
+} */
+
+/* .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 94%;
+} */
+
+@media (min-width: 320px) {
+}
+@media (min-width: 375px) {
+}
+@media (min-width: 412px) {
+}
+@media (min-width: 500px) {
+}
+/* @media (min-width: 768px) {
+  .container {
+    width: 86%;
+  }
+} */
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+}

@@ -1,0 +1,64 @@
+{
+  "wishes": [
+    {
+      "id": 1,
+      "textsWish": "Хочу однажды увидеть северное сияние в Исландии.",
+      "nameAuthor": "Anna",
+      "iconVisit": "circle-check-big"
+    },
+    {
+      "id": 2,
+      "textsWish": "Мечтаю научиться играть на пианино.",
+      "nameAuthor": "Michael",
+      "iconVisit": "circle-x"
+    },
+    {
+      "id": 3,
+      "textsWish": "Хочу проехать на машине через всю Италию.",
+      "nameAuthor": "Sofia",
+      "iconVisit": "circle-check-big"
+    },
+    {
+      "id": 4,
+      "textsWish": "Мечтаю однажды пожить месяц у океана.",
+      "nameAuthor": "Daniel",
+      "iconVisit": "circle-x"
+    },
+    {
+      "id": 5,
+      "textsWish": "Хочу открыть собственную маленькую кофейню.",
+      "nameAuthor": "Emma",
+      "iconVisit": "circle-check-big"
+    },
+    {
+      "id": 6,
+      "textsWish": "Мечтаю научиться серфингу.",
+      "nameAuthor": "Oliver",
+      "iconVisit": "circle-x"
+    },
+    {
+      "id": 7,
+      "textsWish": "Хочу увидеть Японию во время цветения сакуры.",
+      "nameAuthor": "Mia",
+      "iconVisit": "circle-check-big"
+    },
+    {
+      "id": 8,
+      "textsWish": "Мечтаю написать и издать собственную книгу.",
+      "nameAuthor": "Lucas",
+      "iconVisit": "circle-x"
+    },
+    {
+      "id": 9,
+      "textsWish": "Хочу совершить путешествие на поезде через несколько стран Европы.",
+      "nameAuthor": "Liam",
+      "iconVisit": "circle-check-big"
+    },
+    {
+      "id": 10,
+      "textsWish": "Мечтаю научиться фотографировать профессионально.",
+      "nameAuthor": "Olivia",
+      "iconVisit": "circle-x"
+    }
+  ]
+}

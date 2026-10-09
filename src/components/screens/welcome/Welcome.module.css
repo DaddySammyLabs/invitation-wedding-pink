@@ -1,0 +1,25 @@
+/* styles.module.css */
+
+/* instead tailwind: animate-pulse  */
+
+.and {
+  font-family: "Playfair Display", serif;
+}
+
+.moveArrow {
+  animation: moveRight 1.4s ease-in-out infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
