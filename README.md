@@ -46,8 +46,8 @@ The mobile version focuses on maintaining the same core shopping flow as the web
 
 ## 📸 Preview
 
-![Sneaker Store](src/assets/images/screenshot-sneakers-langs.png)
-![Sneaker Store](src/assets/images/screenshot-sneakers-store.png)
+![Sneaker Store](src/assets/images/invitation-screenshot_desc.png)
+![Sneaker Store](src/assets/images/invitation-screenshot_mobile.png)
 
 ## ✨ Features
 
