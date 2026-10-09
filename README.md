@@ -1,14 +1,30 @@
-# 🛍️ React Sneaker Store
+# Wedding Invitation
 
 A responsive e-commerce application built with React and JavaScript.
 
-This project was created as part of my frontend development portfolio to practice building a complete interactive shopping experience with product search, filtering, favorites, shopping cart, orders, theme switching, and multilingual support.
+A multilingual wedding invitation website featuring a photo gallery, interactive navigation, video content, and an RSVP form where guests can confirm their attendance and leave wishes. Guest responses and messages are submitted to the server.
 
 ## 🚀 Live Demo
 
-**Live Demo**: [Sneakers store URL](https://sneakers-store-ruby.vercel.app/)
+**Live Demo**: [Sneakers store URL](https://wedding-invitation-nu-blue-84.vercel.app/)
 
-Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/sneakers-shop-react)
+Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/invitation-wedding-pink)
+
+## Основные возможности проекта
+
+### 🌍 Multilingual support — поддержка нескольких языков.
+
+📸 Photo gallery — галерея свадебных фотографий.
+
+🧭 Navigation section — навигация по разделам сайта.
+
+🎬 Video section — блок с видеоконтентом.
+
+💌 Wedding wishes — форма для отправки пожеланий молодожёнам.
+
+✅ RSVP form — подтверждение или отказ от участия в свадьбе.
+
+🖥️ Server integration — отправка информации о гостях, ответов RSVP и пожеланий на сервер.
 
 ## 📱 Mobile App
 
