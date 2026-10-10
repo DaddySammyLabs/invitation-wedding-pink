@@ -6,7 +6,7 @@ A multilingual wedding invitation website featuring a photo gallery, interactive
 
 ## 🚀 Live Demo
 
-**Live Demo**: [Sneakers store URL](https://wedding-invitation-nu-blue-84.vercel.app/)
+**Live Demo**: [Wedding Invitation URL](https://wedding-invitation-nu-blue-84.vercel.app/)
 
 Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/invitation-wedding-pink)
 
