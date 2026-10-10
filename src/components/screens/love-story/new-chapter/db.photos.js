@@ -3,12 +3,12 @@ export const memories = [
   { image: "/images/story/4.jpg", title: "Memory 4" },
   { image: "/images/story/2.jpg", title: "Memory 2" },
   { image: "/images/story/3.jpg", title: "Memory 3" },
-  { image: "/images/story/8.jpg", title: "Memory 3" },
-  { image: "/images/story/5.jpg", title: "Memory 3" },
-  { image: "/images/story/6.jpg", title: "Memory 3" },
-  { image: "/images/story/7.jpg", title: "Memory 3" },
-  { image: "/images/story/9.jpg", title: "Memory 3" },
-  { image: "/images/story/10.jpg", title: "Memory 3" },
+  { image: "/images/story/8.jpg", title: "Memory 8" },
+  { image: "/images/story/5.jpg", title: "Memory 5" },
+  { image: "/images/story/6.jpg", title: "Memory 6" },
+  { image: "/images/story/7.jpg", title: "Memory 7" },
+  { image: "/images/story/9.jpg", title: "Memory 9" },
+  { image: "/images/story/10.jpg", title: "Memory 10" },
 ];
 
 export const photos = [

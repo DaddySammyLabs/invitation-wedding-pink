@@ -15,11 +15,12 @@ const Header = ({ texts }) => {
     togglePlaySong,
     isPlaying,
   } = useApp();
+
   const [parent] = useAutoAnimate();
 
   return (
     <>
-      <ChooseLang texts={texts} />
+      {/* <ChooseLang texts={texts} /> */}
 
       <div ref={parent} className="fixed top-4 left-4 z-40">
         <div className="relative">

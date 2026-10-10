@@ -4,11 +4,6 @@ import WishesHeader from "./WishesHeader";
 import FormWishes from "./FormWishes";
 import RecentWishes from "./RecentWishes";
 // import B3_CaruselCongrations from "./B3_CaruselCongrations";
-// import B4_CaruselCongrations from "./B4_CaruselCongrations";
-// import B5_CaruselCongrations from "./B5_CaruselCongrations";
-// import FormCongratulation from "./FormCongratulation";
-// import B7_RecentRequestsTitle from "./B7_RecentRequestsTitle";
-// import B8_Requests from "./B8_Requests/B8_Requests";
 
 const WishesSection = ({ texts }) => {
   return (
@@ -23,9 +18,6 @@ const WishesSection = ({ texts }) => {
               className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:500s] py-2"
             >
               {/* <B2_CaruselCongrations /> */}
-              {/* <B3_CaruselCongrations /> */}
-              {/* <B4_CaruselCongrations /> */}
-              {/* <B5_CaruselCongrations /> */}
             </div>
           </div>
 

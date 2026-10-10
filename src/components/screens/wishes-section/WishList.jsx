@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+
+import useShowMore from "@/hooks/useShowMore";
+import useFetch from "@/hooks/useFetch";
+
 import WishCard from "./WishCard";
+import ShowMoreHide from "@/components/ui/buttons/ShowMoreHide";
 
 const WishList = ({ texts }) => {
-  const [wishes, setWishes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [parent] = useAutoAnimate();
 
-  useEffect(() => {
-    const fetchWishes = async () => {
-      try {
-        const response = await axios.get("/wishes.json");
+  const {
+    data: wishes,
+    loading,
+    error,
+  } = useFetch("https://bb7546fa1acca78a.mokky.dev/wishes");
 
-        setWishes(response.data.wishes);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWishes();
-  }, []);
+  const { visibleItems, showAll, handleToggle } = useShowMore(wishes, 5, 3);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -32,7 +27,8 @@ const WishList = ({ texts }) => {
   }
 
   return (
-    <div className="columns-1 gap-4 sm:columns-2 ">
+    <>
+      {/* <div className="columns-1 gap-4 sm:columns-2 ">
       {wishes.map((wish, index) => (
         <div key={index} className="mb-4 break-inside-avoid">
           <WishCard
@@ -43,7 +39,33 @@ const WishList = ({ texts }) => {
           />
         </div>
       ))}
-    </div>
+    </div> */}
+      <div ref={parent} className="columns-1 gap-4 sm:columns-2">
+        {" "}
+        {visibleItems.map((wish, index) => (
+          <div key={wish.id ?? index} className="mb-4 break-inside-avoid">
+            {" "}
+            <WishCard
+              texts={texts}
+              textsWish={wish.textsWish}
+              nameAuthor={wish.nameAuthor}
+              iconVisit={wish.iconVisit}
+            />{" "}
+          </div>
+        ))}{" "}
+      </div>
+      {wishes.length > 4 && (
+        <div className="mt-8 flex justify-center">
+          {" "}
+          <ShowMoreHide
+            handleTogglePhotos={handleToggle}
+            showAll={showAll}
+            morephotos={texts.morephotos}
+            hidephotos={texts.hidephotos}
+          />{" "}
+        </div>
+      )}{" "}
+    </>
   );
 };
 

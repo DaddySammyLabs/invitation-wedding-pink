@@ -2,7 +2,6 @@ import ShadePink from "@/components/ui/backgrounds/ShadePink";
 
 import TitleLoveStory from "./TitleLoveStory";
 import StoryTimeline from "./StoryTimeline";
-import PhotosNewChapter from "./new-chapter/PhotosNewChapter";
 import NewChapter from "./new-chapter/NewChapter";
 
 const LoveStory = ({ texts }) => {
@@ -14,7 +13,6 @@ const LoveStory = ({ texts }) => {
         <div className="max-w-4xl mx-auto relative z-10">
           <TitleLoveStory texts={texts} />
           <StoryTimeline texts={texts} />
-          <PhotosNewChapter texts={texts} />
           <NewChapter texts={texts} />
         </div>
       </section>

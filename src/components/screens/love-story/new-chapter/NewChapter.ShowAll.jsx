@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { photos } from "./db.photos";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-export default function PhotosNewChapter({ texts }) {
+import { photos } from "./db.photos";
+import ShowMoreHide from "@/components/ui/buttons/ShowAllHide";
+
+const NewChapter = ({ texts }) => {
   const [showAll, setShowAll] = useState(false);
 
   const visiblePhotos = showAll ? photos : photos.slice(0, 4);
+
+  const [parent] = useAutoAnimate();
 
   return (
     <div className="mt-32 text-center" style={{ opacity: 1 }}>
@@ -17,7 +22,10 @@ export default function PhotosNewChapter({ texts }) {
       </div>
 
       <div className="mt-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        <div
+          ref={parent}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+        >
           {visiblePhotos.map((photo, index) => (
             <div
               key={index}
@@ -44,31 +52,15 @@ export default function PhotosNewChapter({ texts }) {
           ))}
         </div>
 
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-6 py-3 bg-rose-500 text-white rounded-md shadow hover:bg-rose-600 transition-all duration-300 flex items-center gap-2"
-          >
-            <span>
-              {showAll ? `${texts.hide_photos}` : `${texts.all_photos}`}
-            </span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className={`transition-transform animate-bounce  ${showAll ? "rotate-180" : ""}`}
-            >
-              <path d="M12 5v14" />
-              <path d="m19 12-7 7-7-7" />
-            </svg>
-          </button>
-        </div>
+        <ShowMoreHide
+          hide_photos={texts.hide_photos}
+          all_photos={texts.all_photos}
+          showAll={showAll}
+          setShowAll={setShowAll}
+        />
       </div>
     </div>
   );
-}
+};
+
+export default NewChapter;
