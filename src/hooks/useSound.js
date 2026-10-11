@@ -6,7 +6,8 @@ const useSound = () => {
 
   const createAudio = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio("/sounds/pornhub-intro-sound.mp3");
+      // audioRef.current = new Audio("/sounds/pornhub-intro-sound.mp3");
+      audioRef.current = new Audio("/sounds/LionelRichie-HowLong.mp3");
 
       audioRef.current.addEventListener("play", () => {
         setIsPlaying(true);
