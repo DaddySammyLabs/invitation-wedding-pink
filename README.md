@@ -63,8 +63,12 @@ The mobile version focuses on maintaining the same core shopping flow as the web
 ## 📸 Preview
 
 ![Wedding Invitation](src/assets/images/invitation-screenshot_desc.png)
+
 ![Mobile Wedding Invitation](src/assets/images/invitation-screenshot_mobile.png)
-![until-since-wdding](src/assets/images/invitation-screenshot_until-since_date.png)
+
+![until-since-wedding](src/assets/images/invitation-screenshot_until-since_date.png)
+
+![until-wedding](src/assets/images/invitation-screenshot_untilDate.png)
 
 ## ✨ Features
 
