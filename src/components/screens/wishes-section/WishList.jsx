@@ -79,7 +79,7 @@ const WishList = ({ texts, refreshKey = 0 }) => {
         ))}
       </div>
 
-      {wishes.length > 4 && (
+      {wishes.length > 5 && (
         <div className="mt-8 flex justify-center">
           <ShowMoreHide
             handleTogglePhotos={handleToggle}

@@ -4,7 +4,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import useShowMore from "@/hooks/useShowMore";
 import useFetch from "@/hooks/useFetch";
 
-import WishCard from "./WishCard";
+import WishCard from "../WishCard";
 import ShowMoreHide from "@/components/ui/buttons/ShowMoreHide";
 
 const API_URL = "https://bb7546fa1acca78a.mokky.dev/wishes";
