@@ -17,9 +17,11 @@ function App() {
 
   return (
     <>
-      <div className="relative w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-screen">
+      <div
+        className={`${styles.app} relative w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-screen`}
+      >
         <div
-          className="mx-auto w-full bg-white relative overflow-hidden border border-gray-200 shadow-lg max-w-screen-md"
+          className={`${styles.appContainer} mx-auto w-full bg-white relative overflow-hidden border border-gray-200 shadow-lg max-w-screen-md`}
           style={{ opacity: 1 }}
         >
           <Header texts={texts[language]} />
