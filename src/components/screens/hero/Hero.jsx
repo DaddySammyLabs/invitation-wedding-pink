@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { toPng } from "html-to-image"; //for download -> npm install html-to-image
+// import { toPng } from "html-to-image"; //for download -> npm install html-to-image
+import { toBlob } from "html-to-image";
 
 import styles from "./Hero.module.css";
 
@@ -13,21 +14,38 @@ const Hero = ({ texts }) => {
   const handleDownload = async () => {
     const element = invitationRef.current;
 
-    if (!element) return;
+    if (!element) {
+      console.error("Карточка приглашения не найдена");
+      return;
+    }
 
     try {
       await document.fonts.ready;
 
+      // Ждём загрузки изображений внутри карточки.
+      const images = Array.from(element.querySelectorAll("img"));
+
+      await Promise.all(
+        images.map((img) => {
+          if (img.complete && img.naturalWidth > 0) {
+            return Promise.resolve();
+          }
+
+          return new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          });
+        }),
+      );
+
       const rect = element.getBoundingClientRect();
 
-      const dataUrl = await toPng(element, {
+      const blob = await toBlob(element, {
         cacheBust: true,
-
+        pixelRatio: 2,
         width: Math.round(rect.width),
         height: Math.round(rect.height),
-
-        pixelRatio: 2,
-
+        backgroundColor: "#ffffff",
         style: {
           width: `${Math.round(rect.width)}px`,
           height: `${Math.round(rect.height)}px`,
@@ -36,17 +54,71 @@ const Hero = ({ texts }) => {
         },
       });
 
+      if (!blob || blob.size === 0) {
+        throw new Error("PNG пустой или не был создан");
+      }
+
+      console.log("PNG создан:", {
+        type: blob.type,
+        size: blob.size,
+      });
+
+      const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
+
+      link.href = url;
       link.download = "invitation-card.png";
-      link.href = dataUrl;
+      link.style.display = "none";
 
       document.body.appendChild(link);
       link.click();
       link.remove();
+
+      // Даём браузеру время начать скачивание.
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
     } catch (error) {
       console.error("Не удалось скачать открытку:", error);
+      alert("Не удалось создать приглашение. Проверьте консоль браузера.");
     }
   };
+
+  // const handleDownload = async () => {
+  //   const element = invitationRef.current;
+
+  //   if (!element) return;
+
+  //   try {
+  //     await document.fonts.ready;
+
+  //     const rect = element.getBoundingClientRect();
+
+  //     const dataUrl = await toPng(element, {
+  //       cacheBust: true,
+
+  //       width: Math.round(rect.width),
+  //       height: Math.round(rect.height),
+
+  //       pixelRatio: 2,
+
+  //       style: {
+  //         width: `${Math.round(rect.width)}px`,
+  //         height: `${Math.round(rect.height)}px`,
+  //         margin: "0",
+  //         transform: "none",
+  //       },
+  //     });
+
+  //     const link = document.createElement("a");
+  //     link.download = "invitation-card.png";
+  //     link.href = dataUrl;
+
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     link.remove();
+  //   } catch (error) {
+  //     console.error("Не удалось скачать открытку:", error);
+  //   }
+  // };
 
   return (
     <div className="flex flex-col items-center justify-center px-4 pt-16 sm:pt-20 w-full text-center relative overflow-hidden">
