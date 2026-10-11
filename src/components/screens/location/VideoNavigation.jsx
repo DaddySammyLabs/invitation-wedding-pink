@@ -13,6 +13,8 @@ const VideoNavigation = ({ texts }) => {
     handleClose,
   } = useVideo();
 
+  const videoSrc = "video/wedding-hall.mp4";
+
   return (
     <>
       <div className="max-w-4xl mx-auto mt-16 text-center space-y-8">
@@ -97,7 +99,7 @@ const VideoNavigation = ({ texts }) => {
                 onPause={() => setIsPlaying(false)}
                 onEnded={handleClose}
               >
-                <source src="/video/wedding-hall.mp4" type="video/mp4" />
+                <source src={videoSrc} type="video/mp4" />
                 {texts.not_support_video}
               </video>
 

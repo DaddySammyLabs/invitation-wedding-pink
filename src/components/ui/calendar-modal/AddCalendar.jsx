@@ -1,12 +1,26 @@
 import React from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
+import useWeddingCalendar from "@/hooks/useWeddingCalendar";
+
 // нужно при нажатии открылась соответствующий добавление в календар
 // в хроме
 // в apple , outlook скачалось ->  wedding.ics с указанной датой
 
 const AddCalendar = ({ texts, closeAddCalendar }) => {
   const [parent] = useAutoAnimate();
+
+  const { downloadICS, openGoogleCalendar } = useWeddingCalendar();
+
+  const handleDownloadICS = () => {
+    downloadICS();
+    closeAddCalendar();
+  };
+
+  const handleGoogleCalendar = () => {
+    openGoogleCalendar();
+    closeAddCalendar();
+  };
 
   return (
     <>
@@ -40,6 +54,7 @@ const AddCalendar = ({ texts, closeAddCalendar }) => {
             <div className="space-y-3">
               {/* Google Calendar */}
               <button
+                onClick={handleGoogleCalendar}
                 className="flex items-center space-x-3 w-full p-4 rounded-xl border border-gray-200 hover:bg-gray-50 hover:scale-[1.02] transition-all "
                 tabIndex={0}
                 style={{ transform: "none" }}
@@ -57,6 +72,7 @@ const AddCalendar = ({ texts, closeAddCalendar }) => {
 
               {/* Apple Calendar */}
               <button
+                onClick={handleDownloadICS}
                 className="flex items-center space-x-3 w-full p-4 rounded-xl border border-gray-200 hover:bg-gray-50  hover:bg-gray-50 hover:scale-[1.02] transition-all"
                 tabIndex={0}
                 style={{ transform: "none" }}
@@ -74,6 +90,7 @@ const AddCalendar = ({ texts, closeAddCalendar }) => {
 
               {/* Outlook Calendar */}
               <button
+                onClick={handleDownloadICS}
                 className="flex items-center space-x-3 w-full p-4 rounded-xl border border-gray-200 hover:bg-gray-50  hover:bg-gray-50 hover:scale-[1.02] transition-all"
                 tabIndex={0}
                 style={{ transform: "none" }}

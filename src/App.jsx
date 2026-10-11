@@ -39,10 +39,10 @@ function App() {
           )}
           {/* </main> */}
 
-          <hr className={styles.line}></hr>
+          {/* <hr className={styles.line}></hr>
           <div className={styles.footer}>
             <div onClick={upButton}>{texts[language].author}</div>
-          </div>
+          </div> */}
 
           {/*  */}
         </div>
