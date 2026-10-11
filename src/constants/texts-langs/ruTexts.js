@@ -5,7 +5,7 @@ const ruTexts = {
   wife_name: "Сибилла",
   // wedding_date
   weddingHall: "Zahid Zarafshon Wedding Hall",
-  wedding_date: "Четверг, 14 августа 2025",
+  wedding_date: "Суббота, 14 августа 2027",
   wedding_time: "19:30 ~ 01:30",
   wedding_time2: "19:30 - 01:30",
 
@@ -29,6 +29,7 @@ const ruTexts = {
   invite_text2: "Мы рады видеть вас!",
 
   download_card: "Скачать открытку",
+  until_wedding: "До свадьбы",
   since_wedding: "Со дня свадьбы",
   days: "Дней",
   hours: "Часов",

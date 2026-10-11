@@ -5,7 +5,7 @@ const uzTexts = {
   wife_name: "Sibilla",
   // wedding_date
   weddingHall: "Zahid Zarafshon Wedding Hall",
-  wedding_date: "Payshanba, 14 Avgust 2025",
+  wedding_date: "Shanba, 14 Avgust 2027",
   wedding_time: "19:30 ~ 01:30",
   wedding_time2: "19:30 - 01:30",
 
@@ -29,6 +29,7 @@ const uzTexts = {
   invite_text2: "Siz(lar)ni nikoh to‘yimizga taklif qilamiz!",
 
   download_card: "Taklifnomani yuklab olish",
+  until_wedding: "To'yga qadar",
   since_wedding: "To'ydan beri",
   days: "Kun",
   hours: "Soat",

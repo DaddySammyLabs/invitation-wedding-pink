@@ -5,7 +5,8 @@ const krTexts = {
   wife_name: "Sybil",
   // wedding_date
   weddingHall: "Zahid Zarafshon Wedding Hall",
-  wedding_date: "2025년 8월 14일 목요일",
+  // wedding_date: "2025년 8월 14일 목요일",
+  wedding_date: "2027 년 8 월 14 일 토요일",
   wedding_time: "19:30 ~ 01:30",
   wedding_time2: "19:30 - 01:30",
 
@@ -29,6 +30,7 @@ const krTexts = {
   invite_text2: "함께해 주셔서 감사합니다",
 
   download_card: "청첩장 다운로드",
+  until_wedding: "결혼식 때까지",
   since_wedding: "결혼식 이후",
   days: "일",
   hours: "시간",

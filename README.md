@@ -62,8 +62,9 @@ The mobile version focuses on maintaining the same core shopping flow as the web
 
 ## 📸 Preview
 
-![Sneaker Store](src/assets/images/invitation-screenshot_desc.png)
-![Sneaker Store](src/assets/images/invitation-screenshot_mobile.png)
+![Wedding Invitation](src/assets/images/invitation-screenshot_desc.png)
+![Mobile Wedding Invitation](src/assets/images/invitation-screenshot_mobile.png)
+![until-since-wdding](src/assets/images/invitation-screenshot_until-since_date.png)
 
 ## ✨ Features
 

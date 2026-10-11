@@ -5,7 +5,7 @@ const enTexts = {
   wife_name: "Sybil",
   // wedding_date
   weddingHall: "Zahid Zarafshon Wedding Hall",
-  wedding_date: "Thursday, August 14, 2025",
+  wedding_date: "Saturday, August 14, 2027",
   wedding_time: "19:30 ~ 01:30",
   wedding_time2: "19:30 - 01:30",
 
@@ -31,6 +31,7 @@ const enTexts = {
   invite_text2: "We're honored to have you!",
 
   download_card: "Download Card",
+  until_wedding: "Until the wedding",
   since_wedding: "Since the wedding",
   days: "Days",
   hours: "Hours",
