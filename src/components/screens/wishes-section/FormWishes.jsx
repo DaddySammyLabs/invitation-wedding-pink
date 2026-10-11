@@ -1,54 +1,68 @@
 import { useState } from "react";
+import axios from "axios";
 
-const FormWishes = ({ texts }) => {
+const API_URL = "https://bb7546fa1acca78a.mokky.dev/wishes";
+
+const FormWishes = ({ texts, onWishAdded }) => {
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
   const [wish, setWish] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const attendanceOptions = [
-    {
-      value: "yes",
-      label: texts.attendance_yes,
-    },
-    {
-      value: "no",
-      label: texts.attendance_no,
-    },
-    {
-      value: "maybe",
-      label: texts.attendance_maybe,
-    },
+    { value: "true", label: texts.attendance_yes },
+    { value: "false", label: texts.attendance_no },
+    { value: "maybe", label: texts.attendance_maybe },
   ];
 
   const selectedAttendance = attendanceOptions.find(
     (option) => option.value === attendance,
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setError("");
+
+    // const formData = {
+    //   nameAuthor: name.trim(),
+    //   textsWish: wish.trim(),
+    //   attend: attendance,
+    // };
     const formData = {
-      name,
-      attendance,
-      wish,
+      nameAuthor: name.trim(),
+      textsWish: wish.trim(),
+      attend: attendance,
+      createdAt: new Date().toISOString(),
     };
 
-    console.log("Данные формы:", formData);
+    try {
+      const response = await axios.post(API_URL, formData);
 
-    // Здесь можно отправить данные на сервер
-    // await fetch("/api/wishes", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(formData),
-    // });
+      // Обновляем список после успешного сохранения
+      if (onWishAdded) {
+        await onWishAdded(response.data);
+      }
 
-    alert(texts.wish_thanks);
+      alert(texts.wish_thanks);
 
-    setName("");
-    setAttendance("");
-    setWish("");
-    setIsOpen(false);
+      setName("");
+      setAttendance("");
+      setWish("");
+      setIsOpen(false);
+    } catch (err) {
+      console.error("Ошибка отправки пожелания:", err);
+      setError(
+        "Не удалось отправить пожелание. Проверь подключение к интернету и попробуй ещё раз.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -60,8 +74,7 @@ const FormWishes = ({ texts }) => {
         {/* Имя */}
         <div className="space-y-2">
           <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-            <img className="w-4 h-4" src="/icons/user.svg" alt="user" />
-
+            <img className="w-4 h-4" src="/icons/user.svg" alt="" />
             <span>{texts.name_label}</span>
           </div>
 
@@ -76,22 +89,17 @@ const FormWishes = ({ texts }) => {
           />
         </div>
 
-        {/* Придёте ли */}
+        {/* Присутствие */}
         <div className="space-y-2 relative">
           <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-            <img
-              className="w-4 h-4"
-              src="/icons/calendar-gray.svg"
-              alt="calendar"
-            />
-
+            <img className="w-4 h-4" src="/icons/calendar-gray.svg" alt="" />
             <span>{texts.visit_label}</span>
           </div>
 
-          {/* Кнопка dropdown */}
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
             className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-left flex items-center justify-between outline-none"
           >
             <span className={attendance ? "text-gray-700" : "text-gray-400"}>
@@ -108,7 +116,7 @@ const FormWishes = ({ texts }) => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+              className={`w-5 h-5 text-gray-400 transition-transform ${
                 isOpen ? "rotate-180" : ""
               }`}
             >
@@ -116,9 +124,8 @@ const FormWishes = ({ texts }) => {
             </svg>
           </button>
 
-          {/* Dropdown */}
           {isOpen && (
-            <div className="absolute z-10 w-full mt-1 bg-white rounded-xl shadow-lg border border-rose-100 overflow-hidden">
+            <div className="absolute z-20 w-full mt-1 bg-white rounded-xl shadow-lg border border-rose-100 overflow-hidden">
               {attendanceOptions.map((option) => (
                 <button
                   key={option.value}
@@ -139,8 +146,7 @@ const FormWishes = ({ texts }) => {
         {/* Пожелание */}
         <div className="space-y-2">
           <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-            <img className="w-4 h-4" src="/icons/chat-gray.svg" alt="chat" />
-
+            <img className="w-4 h-4" src="/icons/chat-gray.svg" alt="" />
             <span>{texts.wish_label}</span>
           </div>
 
@@ -159,21 +165,25 @@ const FormWishes = ({ texts }) => {
         </div>
       </div>
 
-      {/* Нижняя часть */}
+      {error && (
+        <p role="alert" className="mt-4 text-sm text-red-600">
+          {error}
+        </p>
+      )}
+
       <div className="flex items-center justify-between mt-4 gap-4">
         <div className="flex items-center space-x-2 text-gray-500">
-          <img className="w-5 h-5" src="/icons/smile.svg" alt="smile" />
-
+          <img className="w-5 h-5" src="/icons/smile.svg" alt="" />
           <span className="text-xs">{texts.wish_leave}</span>
         </div>
 
         <button
           type="submit"
-          className="flex items-center text-sm space-x-2 px-6 py-2.5 rounded-xl text-white font-medium transition-all duration-200 bg-rose-500 hover:bg-rose-600 active:scale-95"
+          disabled={isSubmitting}
+          className="flex items-center text-sm space-x-2 px-6 py-2.5 rounded-xl text-white font-medium transition-all duration-200 bg-rose-500 hover:bg-rose-600 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          <img className="w-4 h-4" src="/icons/send.svg" alt="send" />
-
-          <span>{texts.send_wishes}</span>
+          <img className="w-4 h-4" src="/icons/send.svg" alt="" />
+          <span>{isSubmitting ? "Отправка..." : texts.send_wishes}</span>
         </button>
       </div>
     </form>
