@@ -45,6 +45,11 @@ const krTexts = {
   // eventsCard
   wedding: "결혼식",
   wedding_hall: "자히드 자라프손 결혼식장",
+  // addCalendar
+  addCalendar: "캘린더에 추가",
+  google: "구글 캘린더",
+  apple: "애플 캘린더",
+  outlook: "아웃룩 캘린더",
 
   // Wedding Schedule - Event Timeline
   schedule_subtitle: "결혼식 일정",
@@ -146,6 +151,9 @@ const krTexts = {
 
   // Wishes
   wishes_subtitle: "축하의 기원을 전해 주세요",
+  wishes_uploading: "소원 업로드...",
+  try_again: "다시 시도",
+  no_requests: "아직 요청이 없습니다.",
 
   name_label: "이름", //form-wishes
   name_placeholder: "이름 입력",

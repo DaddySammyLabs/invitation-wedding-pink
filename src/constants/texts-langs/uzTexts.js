@@ -45,6 +45,11 @@ const uzTexts = {
   // eventsCard
   wedding: "Wedding",
   wedding_hall: "Zohid Zarafshon to'y zali",
+  // addCalendar
+  addCalendar: "Kalendariga qo‘shish",
+  google: "Google Kalendar",
+  apple: "Apple Kalendar",
+  outlook: "Outlook Kalendar",
 
   // Wedding Schedule - Event Timeline
   schedule_subtitle: "To‘y Dasturi",
@@ -149,6 +154,10 @@ const uzTexts = {
 
   // Wishes
   wishes_subtitle: "Eng ezgu tilaklaringizni yuboring",
+  wishes_uploading: "Istaklarni yuklash...",
+  try_again: "Qayta urinib ko‘r",
+  no_requests: "Hozircha istaklar yo'q.",
+
   name_label: "Ismingiz", //form-wishes
   name_placeholder: "Ismingizni kiriting",
 

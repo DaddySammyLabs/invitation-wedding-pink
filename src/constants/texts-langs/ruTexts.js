@@ -45,6 +45,11 @@ const ruTexts = {
   // eventsCard
   wedding: "Свадьба",
   wedding_hall: "Свадебный зал Захид Зарафшон",
+  // addCalendar
+  addCalendar: "Добавить в календарь",
+  google: "Google Календарь",
+  apple: "Apple Календарь",
+  outlook: "Outlook Календарь",
 
   // Wedding Schedule - Event Timeline
   schedule_subtitle: "Свадебное расписание",
@@ -147,6 +152,10 @@ const ruTexts = {
 
   // Wishes
   wishes_subtitle: "Отправьте свои наилучшие пожелания и молитвы",
+  wishes_uploading: "Загрузка пожеланий...",
+  try_again: "Try again",
+  no_requests: "Пока нет пожеланий.",
+
   name_label: "Ваше имя", //form-wishes
   name_placeholder: "Введите ваше имя",
 

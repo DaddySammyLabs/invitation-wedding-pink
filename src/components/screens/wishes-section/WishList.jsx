@@ -37,7 +37,7 @@ const WishList = ({ texts, refreshKey = 0 }) => {
   const { visibleItems, showAll, handleToggle } = useShowMore(wishes, 5, 3);
 
   if (loading) {
-    return <p>Загрузка пожеланий...</p>;
+    return <p>{texts.wishes_uploading}</p>;
   }
 
   if (error) {
@@ -45,14 +45,14 @@ const WishList = ({ texts, refreshKey = 0 }) => {
       <div>
         <p role="alert">{error}</p>
         <button type="button" onClick={fetchWishes}>
-          Попробовать снова
+          {texts.try_again}
         </button>
       </div>
     );
   }
 
   if (wishes.length === 0) {
-    return <p>Пока нет пожеланий.</p>;
+    return <p>{texts.no_requests}</p>;
   }
 
   return (
@@ -60,13 +60,6 @@ const WishList = ({ texts, refreshKey = 0 }) => {
       <div ref={parent} className="columns-1 gap-4 sm:columns-2">
         {visibleItems.map((wish) => (
           <div key={wish.id} className="mb-4 break-inside-avoid">
-            {/* <WishCard
-              texts={texts}
-              textsWish={wish.textsWish}
-              nameAuthor={wish.nameAuthor}
-              attend={wish.attend}
-              iconVisit={wish.iconVisit}
-            /> */}
             <WishCard
               texts={texts}
               textsWish={wish.textsWish}
@@ -80,13 +73,8 @@ const WishList = ({ texts, refreshKey = 0 }) => {
       </div>
 
       {wishes.length > 5 && (
-        <div className="mt-8 flex justify-center">
-          <ShowMoreHide
-            handleTogglePhotos={handleToggle}
-            showAll={showAll}
-            morephotos={texts.morephotos}
-            hidephotos={texts.hidephotos}
-          />
+        <div className="mt-8 mb-8 flex justify-center">
+          <ShowMoreHide handleToggle={handleToggle} showAll={showAll} />
         </div>
       )}
     </>

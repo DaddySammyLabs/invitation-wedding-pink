@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
-// import { useApp } from "@/context/AppContext";
+import { useEffect } from "react";
 import useVideo from "@/hooks/useVideo";
 
 const VideoNavigation = ({ texts }) => {
+  const videoSrc = "video/wedding-hall.mp4";
+
   const {
     videoRef,
     isPlaying,
@@ -13,7 +14,13 @@ const VideoNavigation = ({ texts }) => {
     handleClose,
   } = useVideo();
 
-  const videoSrc = "video/wedding-hall.mp4";
+  useEffect(() => {
+    if (isVideoOpen && videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.error("Video playback failed:", error);
+      });
+    }
+  }, [isVideoOpen]);
 
   return (
     <>

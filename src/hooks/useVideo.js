@@ -1,41 +1,40 @@
 import { useRef, useState } from "react";
 
 const useVideo = () => {
-  //   const ref = useRef(null);
   const videoRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isVideoOpen, setIsVideoOpen] = useState(true);
-
-  //   const play = () => setIsPlaying(true);
-  //   const pause = () => setIsPlaying(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const handleToggle = async () => {
-    if (!videoRef.current) return;
+    const video = videoRef.current;
+    if (!video) return;
 
     try {
-      if (videoRef.current.paused) {
-        await videoRef.current.play();
+      if (video.paused) {
+        await video.play();
       } else {
-        videoRef.current.pause();
+        video.pause();
       }
     } catch (error) {
       console.error("Video playback failed:", error);
     }
   };
 
+  const handleOpen = async () => {
+    setIsVideoOpen(true);
+  };
+
   const handleClose = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
+    const video = videoRef.current;
+
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
     }
 
     setIsPlaying(false);
     setIsVideoOpen(false);
-  };
-
-  const handleOpen = () => {
-    setIsVideoOpen(true);
   };
 
   return {

@@ -47,6 +47,11 @@ const enTexts = {
   // eventsCard
   wedding: "Wedding",
   wedding_hall: "Zahid Zarafshon Wedding Hall",
+  // addCalendar
+  addCalendar: "Add to Calendar",
+  google: "Google Calendar",
+  apple: "Apple Calendar",
+  outlook: "Outlook Calendar",
 
   // Wedding Schedule - Event Timeline
   schedule_subtitle: "Wedding Schedule",
@@ -150,6 +155,9 @@ const enTexts = {
 
   // Wishes
   wishes_subtitle: "Send Your Best Wishes and Prayers",
+  wishes_uploading: "Uploading wishes...",
+  try_again: "Try again",
+  no_requests: "There are no requests yet.",
 
   name_label: "Your Name", //form-wishes
   name_placeholder: "Enter your name",

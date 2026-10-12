@@ -20,7 +20,8 @@ const NewChapter = ({ texts }) => {
   const {
     visibleItems: visiblePhotos,
     showAll,
-    handleToggle: handleTogglePhotos,
+    // handleToggle: handleTogglePhotos,
+    handleToggle,
   } = useShowMore(memories, 4, 3);
 
   return (
@@ -83,10 +84,10 @@ const NewChapter = ({ texts }) => {
 
           {memories.length > 4 && (
             <ShowMoreHide
-              handleTogglePhotos={handleTogglePhotos}
+              handleToggle={handleToggle}
               showAll={showAll}
-              more_photos={texts.more_photos}
-              hide_photos={texts.hide_photos}
+              more={texts.more_photos}
+              hide={texts.hide_photos}
             />
           )}
         </div>
