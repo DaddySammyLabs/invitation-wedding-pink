@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-export function useModal(initialValue = false, closeOnEscape = false) {
+// export function useModal(initialValue = false, closeOnEscape = false) {
+const useModal = (initialValue = false, closeOnEscape = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);
 
   const open = () => setIsOpen(true);
@@ -32,7 +33,7 @@ export function useModal(initialValue = false, closeOnEscape = false) {
     close,
     toggle,
   };
-}
+};
 
 export default useModal;
 

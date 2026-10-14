@@ -13,7 +13,8 @@ import Header from "./components/pages/home-header/Header";
 import Home from "./components/pages/Home";
 
 function App() {
-  const { language, upButton, isOpenInvite } = useApp();
+  const { language, upButton, isOpenInvite, isLangModalOpen, closeLangModal } =
+    useApp();
 
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         className={`${styles.app} relative w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-screen`}
       >
         <div
+          onClick={isLangModalOpen ? closeLangModal : undefined}
           className={`${styles.appContainer} mx-auto w-full bg-white relative overflow-hidden border border-gray-200 shadow-lg max-w-screen-md`}
           style={{ opacity: 1 }}
         >

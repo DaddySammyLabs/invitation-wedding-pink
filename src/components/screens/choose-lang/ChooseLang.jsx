@@ -61,10 +61,6 @@ const ChooseLang = ({ texts }) => {
                 O'zbekcha
               </button>
               <button
-                border-rose-400
-                bg-rose-50
-                text-rose-600
-                font-medium
                 onClick={() => langSelected("ru")}
                 className={`${language === "ru" ? "border-rose-400 bg-rose-50 text-rose-600 font-medium" : ""} py-3 px-4 rounded-xl border text-center transition-all border-gray-200 hover:border-rose-200 hover:bg-rose-50/50`}
                 tabIndex="0"

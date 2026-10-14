@@ -17,7 +17,7 @@ const useAppState = () => {
   // const { isOpen, open, close, toggle } = useModal();
 
   const { isOpen: isLanguageModalOpen, close: closeLanguageModal } =
-    useModal(true);
+    useModal(true); //chooseLanguageModal
 
   const {
     isOpen: isLangModalOpen,

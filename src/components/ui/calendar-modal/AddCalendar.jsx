@@ -26,6 +26,7 @@ const AddCalendar = ({ texts, closeAddCalendar }) => {
   return (
     <>
       <div
+        onClick={closeAddCalendar}
         ref={parent}
         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
         style={{ opacity: 1 }}
