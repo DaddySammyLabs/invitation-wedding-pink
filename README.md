@@ -15,50 +15,13 @@ Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/invitation
 ### 🌍 Multilingual support — поддержка нескольких языков.
 
 📸 Photo gallery — галерея свадебных фотографий.
-
 🧭 Navigation section — навигация по разделам сайта.
-
 🎬 Video section — блок с видеоконтентом.
-
 💌 Wedding wishes — форма для отправки пожеланий молодожёнам.
 
 ✅ RSVP form — подтверждение или отказ от участия в свадьбе.
 
 🖥️ Server integration — отправка информации о гостях, ответов RSVP и пожеланий на сервер.
-
-## 📱 Mobile App
-
-The project also includes a dedicated mobile version of the sneaker store.
-
-The mobile app adapts the main shopping experience for mobile devices and provides users with convenient access to the catalog, favorites, shopping cart, orders, and other core features.
-
-The mobile version was created to practice building a consistent user experience across different platforms while keeping the application architecture and business logic reusable.
-
-## Mobile App Features
-
-📱 Mobile-optimized interface
-
-🛍️ Product catalog
-
-🔍 Product search
-
-↕️ Product sorting
-
-❤️ Favorites
-
-🛒 Shopping cart
-
-📦 Orders
-
-🌙 Light and dark themes
-
-🌐 Multilingual interface
-
-✨ Smooth UI interactions
-
-📐 Adaptive layouts for different screen sizes
-
-The mobile version focuses on maintaining the same core shopping flow as the web application while adapting navigation, layouts, and interactions to smaller screens.
 
 ## 📸 Preview
 
@@ -69,6 +32,42 @@ The mobile version focuses on maintaining the same core shopping flow as the web
 ![until-since-wedding](src/assets/images/invitation-screenshot_until-since_date.png)
 
 ![until-wedding](src/assets/images/invitation-screenshot_untilDate.png)
+
+## 📱 Mobile App
+
+The project also includes a dedicated mobile version of the Wedding Invitation.
+
+The mobile version was created to practice building a consistent user experience across different platforms while keeping the application architecture and business logic reusable.
+
+## Mobile App Features
+
+📱 Mobile-optimized interface
+
+📸 Photo gallery
+
+🧭 Navigation section
+
+🎬 Video section
+
+💌 Wedding wishes
+
+🛍️ Product catalog
+
+🔍 Product search
+
+↕️ Product sorting
+
+❤️ Favorites
+
+🌙 Light and dark themes
+
+🌐 Multilingual interface
+
+✨ Smooth UI interactions
+
+📐 Adaptive layouts for different screen sizes
+
+The mobile version focuses on maintaining the same core shopping flow as the web application while adapting navigation, layouts, and interactions to smaller screens.
 
 ## ✨ Features
 
