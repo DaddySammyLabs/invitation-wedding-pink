@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-// export function useModal(initialValue = false, closeOnEscape = false) {
+import { useEscapeKey } from "./useEscapeKey";
+
 const useModal = (initialValue = false, closeOnEscape = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);
 
@@ -11,21 +12,22 @@ const useModal = (initialValue = false, closeOnEscape = false) => {
   const toggle = () => setIsOpen((prev) => !prev);
 
   // Cам решаешь, какое окно реагирует на Esc:
-  useEffect(() => {
-    if (!closeOnEscape || !isOpen) return;
+  useEscapeKey(closeOnEscape, close);
+  // useEffect(() => {
+  //   if (!closeOnEscape || !isOpen) return;
 
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        close();
-      }
-    };
+  //   const handleKeyDown = (event) => {
+  //     if (event.key === "Escape") {
+  //       close();
+  //     }
+  //   };
 
-    window.addEventListener("keydown", handleKeyDown);
+  //   window.addEventListener("keydown", handleKeyDown);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, closeOnEscape]);
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [isOpen, closeOnEscape]);
 
   return {
     isOpen,
