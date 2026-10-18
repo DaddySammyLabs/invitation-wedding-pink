@@ -1,20 +1,27 @@
-//   src//hooks/useModal.js + Esc
+// src/hooks/useModal.js
 
-import { useEffect, useState } from "react";
-
+import { useState, useCallback, useEffect } from "react";
 import { useEscapeKey } from "./useEscapeKey";
 
 const useModal = (initialValue = false, closeOnEscape = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);
 
-  const open = () => setIsOpen(true);
-  const close = () => setIsOpen(false);
-  const toggle = () => setIsOpen((prev) => !prev);
+  const open = useCallback(() => {
+    setIsOpen(true);
+  }, []);
 
-  // Cам решаешь, какое окно реагирует на Esc:
-  useEscapeKey(closeOnEscape, close);
+  const close = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const toggle = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  // useEscapeKey(closeOnEscape, close);
+  useEscapeKey(isOpen && closeOnEscape, close);
   // useEffect(() => {
-  //   if (!closeOnEscape || !isOpen) return;
+  //   if (!isOpen || !closeOnEscape) return;
 
   //   const handleKeyDown = (event) => {
   //     if (event.key === "Escape") {
@@ -27,7 +34,7 @@ const useModal = (initialValue = false, closeOnEscape = false) => {
   //   return () => {
   //     window.removeEventListener("keydown", handleKeyDown);
   //   };
-  // }, [isOpen, closeOnEscape]);
+  // }, [isOpen, closeOnEscape, close]);
 
   return {
     isOpen,
@@ -38,16 +45,3 @@ const useModal = (initialValue = false, closeOnEscape = false) => {
 };
 
 export default useModal;
-
-// И тогда ты сам решаешь, какое окно реагирует на Esc:
-// const {
-//   isOpen: isLangModalOpen,
-//   open: openLangModal,
-//   close: closeLangModal,
-// } = useModal(false, true);
-
-// const {
-//   isOpen: addCalendar,
-//   open: openAddCalendar,
-//   close: closeAddCalendar,
-// } = useModal(false, false);
