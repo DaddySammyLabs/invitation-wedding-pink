@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-// import { toPng } from "html-to-image"; //for download -> npm install html-to-image
 import { toBlob } from "html-to-image";
 
 import styles from "./Hero.module.css";
+import useDownloadImage from "@/hooks/useDownloadImage";
 
 import InvitationCard from "./InvitationCard";
 import DownloadButton from "@/components/ui/buttons/DownloadButton";
