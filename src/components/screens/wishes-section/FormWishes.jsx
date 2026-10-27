@@ -1,15 +1,23 @@
 import { useState } from "react";
-import axios from "axios";
+
+import useFormWishes from "@/hooks/api/useForm";
 
 const API_URL = "https://bb7546fa1acca78a.mokky.dev/wishes";
 
-const FormWishes = ({ texts, onWishAdded }) => {
-  const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState("");
-  const [wish, setWish] = useState("");
+const FormWishes = ({ texts, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+
+  const {
+    name,
+    setName,
+    attendance,
+    setAttendance,
+    wish,
+    setWish,
+    isSubmitting,
+    error,
+    handleSubmit,
+  } = useFormWishes({ texts, API_URL, refetch });
 
   const attendanceOptions = [
     { value: "true", label: texts.attendance_yes },
@@ -20,50 +28,6 @@ const FormWishes = ({ texts, onWishAdded }) => {
   const selectedAttendance = attendanceOptions.find(
     (option) => option.value === attendance,
   );
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (isSubmitting) return;
-
-    setIsSubmitting(true);
-    setError("");
-
-    // const formData = {
-    //   nameAuthor: name.trim(),
-    //   textsWish: wish.trim(),
-    //   attend: attendance,
-    // };
-    const formData = {
-      nameAuthor: name.trim(),
-      textsWish: wish.trim(),
-      attend: attendance,
-      createdAt: new Date().toISOString(),
-    };
-
-    try {
-      const response = await axios.post(API_URL, formData);
-
-      // Обновляем список после успешного сохранения
-      if (onWishAdded) {
-        await onWishAdded(response.data);
-      }
-
-      alert(texts.wish_thanks);
-
-      setName("");
-      setAttendance("");
-      setWish("");
-      setIsOpen(false);
-    } catch (err) {
-      console.error("Ошибка отправки пожелания:", err);
-      setError(
-        "Не удалось отправить пожелание. Проверь подключение к интернету и попробуй ещё раз.",
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <form

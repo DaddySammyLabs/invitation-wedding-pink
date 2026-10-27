@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { useEscapeKey } from "./useEscapeKey";
+import { useEscapeKey } from "./common/useEscapeKey";
 
 const useModal = (initialValue = false, closeOnEscape = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);

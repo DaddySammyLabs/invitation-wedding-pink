@@ -1,13 +1,6 @@
-import { useState } from "react";
 import WishList from "./WishList";
 
-const RecentWishes = ({ texts }) => {
-  const [refreshKey, setRefreshKey] = useState(0);
-
-  const handleWishAdded = () => {
-    setRefreshKey((prev) => prev + 1);
-  };
-
+const RecentWishes = ({ texts, wishes, loading, error, refetch }) => {
   return (
     <div className="mt-8 relative">
       <div className="flex items-center justify-between mb-4">
@@ -22,7 +15,13 @@ const RecentWishes = ({ texts }) => {
       </div>
 
       <div className="mt-6">
-        <WishList texts={texts} refreshKey={refreshKey} />
+        <WishList
+          texts={texts}
+          wishes={wishes}
+          loading={loading}
+          error={error}
+          refetch={refetch}
+        />
       </div>
     </div>
   );

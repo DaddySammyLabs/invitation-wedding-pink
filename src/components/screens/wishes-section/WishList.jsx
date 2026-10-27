@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import axios from "axios";
 
 import useShowMore from "@/hooks/useShowMore";
 import WishCard from "./WishCard";
@@ -8,33 +6,12 @@ import ShowMoreHide from "@/components/ui/buttons/ShowMoreHide";
 
 const API_URL = "https://bb7546fa1acca78a.mokky.dev/wishes";
 
-const WishList = ({ texts, refreshKey = 0 }) => {
+const WishList = ({ texts, wishes, loading, error, refetch }) => {
   const [parent] = useAutoAnimate();
 
-  const [wishes, setWishes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const safeWishes = Array.isArray(wishes) ? wishes : [];
 
-  const fetchWishes = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await axios.get(API_URL);
-      setWishes(Array.isArray(response.data) ? response.data : []);
-    } catch (err) {
-      console.error("Ошибка загрузки wishes:", err);
-      setError("Не удалось загрузить пожелания.");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchWishes();
-  }, [fetchWishes, refreshKey]);
-
-  const { visibleItems, showAll, handleToggle } = useShowMore(wishes, 5, 3);
+  const { visibleItems, showAll, handleToggle } = useShowMore(safeWishes, 5, 3);
 
   if (loading) {
     return <p>{texts.wishes_uploading}</p>;

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
+import useFetch from "@/hooks/api/useFetch";
 
 import WishesHeader from "./WishesHeader";
 import FormWishes from "./FormWishes";
 import RecentWishes from "./RecentWishes";
 // import CaruselWishes from "./CaruselWishes";
 
-const WishesSection = ({ texts }) => {
-  const [refreshKey, setRefreshKey] = useState(0);
+const API_URL = "https://bb7546fa1acca78a.mokky.dev/wishes";
 
-  const handleWishAdded = () => {
-    setRefreshKey((prev) => prev + 1);
-  };
+const WishesSection = ({ texts }) => {
+  const { data: wishes, loading, error, refetch } = useFetch(API_URL);
 
   return (
     <section id="wishes" className="min-h-screen relative overflow-hidden">
@@ -18,10 +17,16 @@ const WishesSection = ({ texts }) => {
         <WishesHeader texts={texts} />
 
         <div className="max-w-2xl mx-auto mt-12">
-          <FormWishes texts={texts} onWishAdded={handleWishAdded} />
+          <FormWishes texts={texts} refetch={refetch} />
 
           {/* <CaruselWishes /> */}
-          <RecentWishes texts={texts} refreshKey={refreshKey} />
+          <RecentWishes
+            texts={texts}
+            wishes={wishes}
+            loading={loading}
+            error={error}
+            refetch={refetch}
+          />
         </div>
       </div>
     </section>

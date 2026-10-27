@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { memories } from "@/components/screens/love-story/new-chapter/db.photos";
-import { useEscapeKey } from "./useEscapeKey";
-import { useBodyScrollLock } from "./useBodyScrollLock";
+import { useEscapeKey } from "./common/useEscapeKey";
+import { useBodyScrollLock } from "./common/useBodyScrollLock";
 
 const usePhotos = () => {
   const [selectedImage, setSelectedImage] = useState(null);
